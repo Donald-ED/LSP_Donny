@@ -1,4 +1,4 @@
-package org.howard.edu.hw4;
+package org.howard.edu.hw5;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,11 +62,17 @@ public class IntegerSet {
      * @return Integer
      * @throws Exception
      */
-    public int largest() throws Exception {
-        if (arr.isEmpty()) {
-            throw new Exception("Set is empty");
-        }
-        return Collections.max(arr);
+    public int largest() throws IntegerSetException {
+    	if (arr.isEmpty()) {
+    		throw new IntegerSetException("Set is empty");
+    	}
+    	int largest = arr.get(0);
+    	for (int element : arr) {
+    		if (element > largest) {
+    			largest = element;
+    		}
+    	}
+    	return largest;
     }
 
     /**
@@ -76,16 +82,16 @@ public class IntegerSet {
      */
     public int smallest() throws IntegerSetException {
     	if (arr.isEmpty()) {
-    	throw new IntegerSetException("Set is empty");
+    		throw new IntegerSetException("Set is empty");
     	}
     	int smallest = arr.get(0);
     	for (int element : arr) {
-    	if (element < smallest) {
-    	smallest = element;
-    	}
+    		if (element < smallest) {
+    			smallest = element;
+    		}
     	}
     	return smallest;
-    	}
+    }
 
     /**
      *  Adds an item to the set or does nothing it already there	
