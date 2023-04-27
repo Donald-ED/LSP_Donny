@@ -29,6 +29,13 @@ class SongsDatabaseTest {
         assertTrue(jazzSongs.contains("Always There"));
         assertFalse(jazzSongs.contains("Savage"));
         assertFalse(jazzSongs.contains("Gin and Juice"));
+        
+        assertThrows(IllegalArgumentException.class, () -> db.addSong(null, "Test Song"));
+        assertThrows(IllegalArgumentException.class, () -> db.addSong("", "Test Song"));
+        assertThrows(IllegalArgumentException.class, () -> db.addSong("Test Genre", null));
+        assertThrows(IllegalArgumentException.class, () -> db.addSong("Test Genre", ""));
+        assertThrows(IllegalArgumentException.class, () -> db.getSongs(null));
+        assertThrows(IllegalArgumentException.class, () -> db.getSongs(""));
     }
 
     @Test
@@ -37,5 +44,7 @@ class SongsDatabaseTest {
         assertEquals("Rap", db.getGenreOfSong("Gin and Juice"));
         assertEquals("Jazz", db.getGenreOfSong("Always There"));
         assertNull(db.getGenreOfSong("Non-existent Song"));
+        assertThrows(IllegalArgumentException.class, () -> db.getGenreOfSong(null));
+        assertThrows(IllegalArgumentException.class, () -> db.getGenreOfSong(""));
     }
 }
