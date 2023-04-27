@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/org/howard/edu/finals/word/final_spring_2023 (3).docx</name>
+			<type>1</type>
+			<location>/Users/donaldechefu/Downloads/final_spring_2023 (3).docx</location>
+		</link>
+	</linkedResources>
 </projectDescription>
